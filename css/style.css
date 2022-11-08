@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --offblack: #050505;
+  --darkerblue: #004FFF;
+  --lighterblue: #31AFD4;
+  --darkerred: #902D41;
+  --rosepink: #FF007F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  color: var(--offblack);
+}
+
+.para-bold {
+  font-weight: 600;
+}
+
+.width-control {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Fonts */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Hammersmith One', sans-serif;
+}
+
+p, li, a, button {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+/* Header */
+header {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+header .width-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 30px;
+  color: var(--darkerblue);
+}
+
+header a {
+  color: var(--offblack);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 5px solid white;
+}
+
+header a:hover, header .active {
+  color: var(--offblack);
+  border-bottom: 5px solid var(--darkerred);
+}
+
+header .navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+header #offcanvas-nav .navbar-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+header #offcanvas-nav .navbar-nav a {
+  font-size: 20px;
+}
+
+#full-navbar {
+  display: block;
+}
+
+#hamburger-button {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main */
+h1 {
+  font-size: 25px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+footer {
+  font-size: 15px;
+  border-top: 1px solid #e2e2e2;
+  background-color: var(--offblack);
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+footer .logo {
+  font-size: 25px;
+  color: var(--lighterblue)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries */
+@media only screen and (max-width: 800px) {
+
+  /* Header */
+  #full-navbar {
+    display: none;
+  }
+  
+  #hamburger-button {
+    display: block;
+  }
+}
