@@ -51,8 +51,8 @@ const gamePirate = new Game(
 const gameRabbit = new Game(
   "images/rabbit.png",
   "https://tamidy.github.io/rabbit-vs-fox-js/", 
-  "This is a rabbit vs. fox game.",
-  "Rabbit vs. Fox", 
+  "Rabbit vs. Fox",
+  "This is a rabbit vs. fox game.", 
   ["Platform", "p5.js"],
   "instructions"
 );

@@ -26,7 +26,7 @@ var Sketch = /** @class */ (function () {
 }());
 //Game objects
 var gamePirate = new Game("images/pirate.png", "https://tamidy.github.io/pirate-ship-vs-sea-monster-js/", "Pirate Ship vs. Sea Monster", "This is a pirate vs. sea monster game.", ["Turn-based", "p5.js"], "instructions");
-var gameRabbit = new Game("images/rabbit.png", "https://tamidy.github.io/rabbit-vs-fox-js/", "This is a rabbit vs. fox game.", "Rabbit vs. Fox", ["Platform", "p5.js"], "instructions");
+var gameRabbit = new Game("images/rabbit.png", "https://tamidy.github.io/rabbit-vs-fox-js/", "Rabbit vs. Fox", "This is a rabbit vs. fox game.", ["Platform", "p5.js"], "instructions");
 var gameBlue = new Game("images/blue.png", "https://tamidy.github.io/blue/", "Blue", "This is a blue game.", ["Puzzle", "p5.js"], "instructions");
 var games = [gamePirate, gameRabbit, gameBlue];
 var sketches = [];
