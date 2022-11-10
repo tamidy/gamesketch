@@ -18,7 +18,7 @@ class Game {
   greet() {
     return "hello";
   }
-}
+} //end Game class
 
 class Sketch {
   url: string;
@@ -36,9 +36,9 @@ class Sketch {
   greet() {
     return "hello";
   }
-}
+} //end Sketch class
 
-//Game objects
+//***********Game objects***********
 const gamePirate = new Game(
   "images/pirate.png",
   "https://tamidy.github.io/pirate-ship-vs-sea-monster-js/", 
@@ -66,18 +66,21 @@ const gameBlue = new Game(
   "instructions"
 );
 
+
 let games: Game[] = [gamePirate, gameRabbit, gameBlue];
 let sketches: Sketch[] = [];
+
 
 window.onload = function() {
   displayGames();
   //displaySketches();
 
+
   //***********Check if a game has been selected***********
   let gameCards = document.getElementsByClassName("game");
   let gameID;
   for (let i=0; i<gameCards.length; i++) {
-    gameCards[i].addEventListener("click", (event) => {
+    gameCards[i].addEventListener("click", function() {
 
       //Hide games-section, show game-display
       document.getElementById("games-section").style.display = "none";
@@ -100,15 +103,17 @@ window.onload = function() {
         }
       }
     });
-  } //***********end check if a game has been selected***********
+  }
 
-  //Back button
+
+  //***********Back button***********
   let backButtonGames = document.getElementById("back-button-games");
-  backButtonGames?.addEventListener("click", (event) => {
+  backButtonGames?.addEventListener("click", function() {
     //Show games-section, hide game-display
     document.getElementById("games-section").style.display = "block";
     document.getElementById("game-display-section").style.display = "none";
   });
+
 
   // FIXME: remove later?
   // let pathName = window.location.pathname;
@@ -118,7 +123,63 @@ window.onload = function() {
   // }
 
 
+  //***********Contact form error messages***********
+  let nameInput = (<HTMLInputElement>document.getElementById("name"));
+  let nameBlankError = (<HTMLInputElement>document.getElementById("errorNameBlank"));
+  let nameFormatError = (<HTMLInputElement>document.getElementById("errorNameFormat"));
+  nameInput?.addEventListener("input", function() {
+    checkBlank(nameInput, nameBlankError);
+
+    //Check format
+    let nameFormat = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if (!nameFormat.test(nameInput.value)) {
+      nameFormatError.style.display = "block";
+      nameInput.style.borderColor = "red";
+    } else {
+      nameFormatError.style.display = "none";
+      nameInput.style.borderColor = "#ced4da"; //Original bootstrap input border color
+    }
+
+  });
+
+  let emailInput = (<HTMLInputElement>document.getElementById("email"));
+  let emailBlankError = (<HTMLInputElement>document.getElementById("errorEmailBlank"));
+  let emailFormatError = (<HTMLInputElement>document.getElementById("errorEmailFormat"));
+  emailInput?.addEventListener("input", function() {
+    checkBlank(emailInput, emailBlankError);
+
+    //Check format
+    let emailFormat = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (!emailFormat.test(emailInput.value)) {
+      emailFormatError.style.display = "block";
+      emailInput.style.borderColor = "red";
+    } else {
+      emailFormatError.style.display = "none";
+      emailInput.style.borderColor = "#ced4da"; //Original bootstrap input border color
+    }
+  });
+
+  let subjectInput = (<HTMLInputElement>document.getElementById("subject"));
+  let subjectBlankError = (<HTMLInputElement>document.getElementById("errorSubjectBlank"));
+  subjectInput?.addEventListener("input", function() {
+    checkBlank(subjectInput, subjectBlankError);
+  });
+
+  let messageInput = (<HTMLInputElement>document.getElementById("message"));
+  let messageBlankError = (<HTMLInputElement>document.getElementById("errorMessageBlank"));
+  messageInput?.addEventListener("input", function() {
+    checkBlank(messageInput, messageBlankError);
+  });
+
+  //***********Contact form onsubmit***********
+  let formContact = (<HTMLFormElement>document.querySelector("form"));
+  formContact.addEventListener("submit", function() {
+    document.getElementById("success-message").style.display = "flex";
+    console.log("worked");
+  });
+
 } //end window.onload
+
 
 function displayGames() {
   let pageLink, imgSection, img, textSection, name, descr, tagsList, instr, link; 
@@ -173,3 +234,13 @@ function displayGames() {
 // function display(link) {
 
 // }
+
+function checkBlank(input: HTMLInputElement, blankError: HTMLInputElement) {
+  if (input.value == null || input.value == "") {
+    blankError.style.display = "block";
+    input.style.borderColor = "red";
+  } else {
+    blankError.style.display = "none";
+    input.style.borderColor = "#ced4da"; //Original bootstrap input border color
+  }
+}

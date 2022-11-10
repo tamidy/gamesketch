@@ -8,6 +8,7 @@
   --lighterblue: #31AFD4;
   --darkerred: #902D41;
   --rosepink: #FF007F;
+  --line: #e2e2e2;
 }
 
 * {
@@ -24,11 +25,6 @@ body {
   font-weight: 600;
 }
 
-.width-control {
-  width: 80%;
-  margin: 0 auto;
-}
-
 /* Fonts */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Hammersmith One', sans-serif;
@@ -36,6 +32,22 @@ h1, h2, h3, h4, h5, h6 {
 
 p, li, a, button {
   font-family: 'Roboto', sans-serif;
+}
+
+.redButton {
+  color: white;
+  background-color: var(--darkerred);
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--darkerred);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #0000001A;
+}
+
+.redButton:hover {
+  text-decoration: underline;
+  box-shadow: 0px 0px 50px #0000001A;
+  background-color: var(--offblack);
 }
 
 
@@ -46,7 +58,7 @@ p, li, a, button {
 
 /* Header */
 header {
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 1px solid var(--line);
 }
 
 header .width-control {
@@ -109,10 +121,25 @@ header #offcanvas-nav .navbar-nav a {
 
 
 
-/* Main */
+/* Main (general) */
 h1 {
   font-size: 25px !important;
+  font-weight: 600 !important; 
 }
+
+.width-control {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
 
 
 /* Games page */
@@ -200,11 +227,84 @@ h1 {
 
 
 
+/* Contact page */
+#contact-page-width > * {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#error-message { /* When visible, flex */
+  display: none;
+  position: relative;
+  background-color: #FDF8F6;
+  border: 3px solid red;
+  border-radius: 5px;
+}
+
+#success-message { /* When visible, flex */
+  display: none;
+  position: relative;
+  background-color: #F2FBFB;
+  border: 3px solid green;
+  border-radius: 5px;
+}
+
+#close-button-error, #close-button-success {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+form {
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px #0000001A;
+  padding: 30px 50px;
+}
+
+label {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 70% !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(49, 175, 212, .25) !important;
+}
+
+small {
+  color: #7A7A7A;
+}
+
+form p {
+  display: none;
+  color: red;
+  padding: 0;
+  margin: 5px 0;
+}
+
+
+
+
+
+
+
+
+
 
 /* Footer */
 footer {
   font-size: 15px;
-  border-top: 1px solid #e2e2e2;
+  border-top: 1px solid var(--line);
   background-color: var(--offblack);
   color: white;
 }

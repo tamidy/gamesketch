@@ -64,9 +64,49 @@
     </header>
 
     <main>
-      <section class="width-control py-5">
-        <h1 class="para-bold mb-5">Contact page</h1>
+      <section class="width-control py-5" id="contact-page-width">
 
+        <section class="p-3 mb-4" id="error-message">
+          <img src="images/close.png" alt="Close button" id="close-button-error" width="20">
+          <img src="images/error.png" alt="X symbol" width="25" class="me-2">
+          <p class="para-bold p-0 m-0">Error, please try again later.</p>          
+        </section>
+
+        <section class="p-3 mb-4" id="success-message">
+          <img src="images/close.png" alt="Close button" id="close-button-success" width="20">
+          <img src="images/success.png" alt="Check symbol" width="25" class="me-2">
+          <p class="para-bold p-0 m-0">Success!</p>
+        </section>
+
+        <h1 class="mb-3">Contact</h1>
+
+        <form>
+          <section class="form-group">
+            <label for="name">Name</label>
+            <p id="errorNameBlank">* This field is required</p>
+            <p id="errorNameFormat">* Please match the requested format</p>
+            <input type="text" class="form-control" id="name" alt="Enter first and last name" placeholder="Enter name" aria-invalid="true" required>
+            <small>ex: John Smith</small>
+          </section>
+          <section class="form-group">
+            <label for="email">Email</label>
+            <p id="errorEmailBlank">* This field is required</p>
+            <p id="errorEmailFormat">* Please match the requested format</p>
+            <input type="email" class="form-control" id="email" alt="Enter email address" placeholder="Enter email" aria-invalid="true" required>
+            <small>ex: something@email.com</small>
+          </section>
+          <section class="form-group">
+            <label for="subject">Subject</label>
+            <p id="errorSubjectBlank">* This field is required</p>
+            <input type="text" class="form-control" id="subject" alt="Enter subject" placeholder="Enter subject" aria-invalid="true" required>
+          </section>
+          <section class="form-group">
+            <label for="message">Message</label>
+            <p id="errorMessageBlank">* This field is required</p>
+            <textarea class="form-control" name="message" id="message" rows="8" alt="Enter message" placeholder="Enter message" aria-invalid="true" required></textarea>
+          </section>
+          <button type="submit" class="redButton py-2 px-3">Submit</button>
+        </form>
       </section> <!-- end width-control -->
     </main>
 

@@ -11,7 +11,7 @@ var Game = /** @class */ (function () {
         return "hello";
     };
     return Game;
-}());
+}()); //end Game class
 var Sketch = /** @class */ (function () {
     function Sketch(url, name, description, tags) {
         this.url = url;
@@ -23,8 +23,8 @@ var Sketch = /** @class */ (function () {
         return "hello";
     };
     return Sketch;
-}());
-//Game objects
+}()); //end Sketch class
+//***********Game objects***********
 var gamePirate = new Game("images/pirate.png", "https://tamidy.github.io/pirate-ship-vs-sea-monster-js/", "Pirate Ship vs. Sea Monster", "This is a pirate vs. sea monster game.", ["Turn-based", "p5.js"], "instructions");
 var gameRabbit = new Game("images/rabbit.png", "https://tamidy.github.io/rabbit-vs-fox-js/", "Rabbit vs. Fox", "This is a rabbit vs. fox game.", ["Platform", "p5.js"], "instructions");
 var gameBlue = new Game("images/blue.png", "https://tamidy.github.io/blue/", "Blue", "This is a blue game.", ["Puzzle", "p5.js"], "instructions");
@@ -37,7 +37,7 @@ window.onload = function () {
     var gameCards = document.getElementsByClassName("game");
     var gameID;
     var _loop_1 = function (i) {
-        gameCards[i].addEventListener("click", function (event) {
+        gameCards[i].addEventListener("click", function () {
             //Hide games-section, show game-display
             document.getElementById("games-section").style.display = "none";
             document.getElementById("game-display-section").style.display = "block";
@@ -56,10 +56,10 @@ window.onload = function () {
     };
     for (var i = 0; i < gameCards.length; i++) {
         _loop_1(i);
-    } //***********end check if a game has been selected***********
-    //Back button
+    }
+    //***********Back button***********
     var backButtonGames = document.getElementById("back-button-games");
-    backButtonGames === null || backButtonGames === void 0 ? void 0 : backButtonGames.addEventListener("click", function (event) {
+    backButtonGames === null || backButtonGames === void 0 ? void 0 : backButtonGames.addEventListener("click", function () {
         //Show games-section, hide game-display
         document.getElementById("games-section").style.display = "block";
         document.getElementById("game-display-section").style.display = "none";
@@ -69,6 +69,55 @@ window.onload = function () {
     // let page = pathName.split("/").pop();
     // if (page == "one-game.html") {
     // }
+    //***********Contact form error messages***********
+    var nameInput = document.getElementById("name");
+    var nameBlankError = document.getElementById("errorNameBlank");
+    var nameFormatError = document.getElementById("errorNameFormat");
+    nameInput === null || nameInput === void 0 ? void 0 : nameInput.addEventListener("input", function () {
+        checkBlank(nameInput, nameBlankError);
+        //Check format
+        var nameFormat = /^[a-zA-Z]+ [a-zA-Z]+$/;
+        if (!nameFormat.test(nameInput.value)) {
+            nameFormatError.style.display = "block";
+            nameInput.style.borderColor = "red";
+        }
+        else {
+            nameFormatError.style.display = "none";
+            nameInput.style.borderColor = "#ced4da"; //Original bootstrap input border color
+        }
+    });
+    var emailInput = document.getElementById("email");
+    var emailBlankError = document.getElementById("errorEmailBlank");
+    var emailFormatError = document.getElementById("errorEmailFormat");
+    emailInput === null || emailInput === void 0 ? void 0 : emailInput.addEventListener("input", function () {
+        checkBlank(emailInput, emailBlankError);
+        //Check format
+        var emailFormat = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (!emailFormat.test(emailInput.value)) {
+            emailFormatError.style.display = "block";
+            emailInput.style.borderColor = "red";
+        }
+        else {
+            emailFormatError.style.display = "none";
+            emailInput.style.borderColor = "#ced4da"; //Original bootstrap input border color
+        }
+    });
+    var subjectInput = document.getElementById("subject");
+    var subjectBlankError = document.getElementById("errorSubjectBlank");
+    subjectInput === null || subjectInput === void 0 ? void 0 : subjectInput.addEventListener("input", function () {
+        checkBlank(subjectInput, subjectBlankError);
+    });
+    var messageInput = document.getElementById("message");
+    var messageBlankError = document.getElementById("errorMessageBlank");
+    messageInput === null || messageInput === void 0 ? void 0 : messageInput.addEventListener("input", function () {
+        checkBlank(messageInput, messageBlankError);
+    });
+    //***********Contact form onsubmit***********
+    var formContact = document.querySelector("form");
+    formContact.addEventListener("submit", function () {
+        document.getElementById("success-message").style.display = "flex";
+        console.log("worked");
+    });
 }; //end window.onload
 function displayGames() {
     var pageLink, imgSection, img, textSection, name, descr, tagsList, instr, link;
@@ -113,3 +162,13 @@ function displayGames() {
 // }
 // function display(link) {
 // }
+function checkBlank(input, blankError) {
+    if (input.value == null || input.value == "") {
+        blankError.style.display = "block";
+        input.style.borderColor = "red";
+    }
+    else {
+        blankError.style.display = "none";
+        input.style.borderColor = "#ced4da"; //Original bootstrap input border color
+    }
+}
