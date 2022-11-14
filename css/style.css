@@ -47,6 +47,7 @@ p, li, a, button {
 .redButton:hover {
   text-decoration: underline;
   box-shadow: 0px 0px 50px #0000001A;
+  color: white;
   background-color: var(--offblack);
 }
 
@@ -123,13 +124,39 @@ header #offcanvas-nav .navbar-nav a {
 
 /* Main (general) */
 h1 {
-  font-size: 25px !important;
+  font-size: 30px !important;
   font-weight: 600 !important; 
 }
 
 .width-control {
   width: 80%;
   margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+/* Home page */
+#top-fold {
+  height: 50vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.home-section {
+  height: 60vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.home-section h2 {
+  font-size: 25px;
 }
 
 
